@@ -1,0 +1,33 @@
+{
+  "editor.fontSize": 26,
+  "terminal.integrated.fontSize": 26,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "xml": {
+      "attr_quotes": "single"
+    }
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "window.zoomLevel": 0,
+  "explorer.confirmDelete": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveSassCompile.settings.formats":[
+    {
+      "format":"compressed",
+      "extensionName": ".min.css",
+      "savePath": "/dist/css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "css.remoteStyleSheets": [
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  ],
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "turboConsoleLog.logMessagePrefix": "OUTPUT"
+}
