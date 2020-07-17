@@ -29,7 +29,6 @@ export const loadUser = () => async dispatch => {
   }
 };
 
-
 // Register User
 export const register = ({ name, email, password }) => async dispatch => {
   const config = {
@@ -53,6 +52,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
+    
     dispatch({
       type: REGISTER_FAIL
     });
