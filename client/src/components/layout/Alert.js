@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alert';
 
 const Alert = ({ alerts }) =>
   alerts !== null &&
@@ -16,7 +15,7 @@ Alert.propTypes = {
   alerts: PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   alerts: state.alert
 });
 
