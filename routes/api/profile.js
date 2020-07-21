@@ -29,7 +29,7 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
-// @route    POST api/profile/me
+// @route    POST api/profile
 // @desc     Create or update user profile
 // @access   Private
 router.post(
@@ -85,6 +85,7 @@ router.post(
     // console.log(profileFields.social.twitter);
 
     try {
+      // Using upsert option (creates new doc if no match is found):
       let profile = await Profile.findOne({ user: req.user.id });
       if (profile) {
         //Update
@@ -170,7 +171,9 @@ router.put(
     [
       check('title', 'Title is required').not().isEmpty(),
       check('company', 'Company is required').not().isEmpty(),
-      check('from', 'From date is required').not().isEmpty()
+      check('from', 'From date is required and needs to be from the past')
+      .not()
+      .isEmpty()
     ]
   ],
   async (req, res) => {
@@ -233,7 +236,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send('Server error');
   }
 });
 
