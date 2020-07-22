@@ -21,9 +21,15 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data
     });
   } catch (err) {
+    // Profile State Issue & Fix : We found a security flaw in this app. If a guest user browses a dev profile and then registers, the browsed users profile data is still in the "profile" state and the newly registered user then sees and can edit the users info 
+    // Add this 
+    // dispatch({ type: CLEAR_PROFILE });
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status
+      }
     });
   }
 };
@@ -48,7 +54,7 @@ export const getProfiles = () => async (dispatch) => {
 };
 
 // Get profile by ID
-export const getProfileById = userId => async (dispatch) => {
+export const getProfileById = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/profile/user/${userId}`);
 
@@ -65,7 +71,7 @@ export const getProfileById = userId => async (dispatch) => {
 };
 
 // Get Github repos
-export const getGithubRepos = username => async (dispatch) => {
+export const getGithubRepos = (username) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/profile/github/${username}`);
 
@@ -80,7 +86,6 @@ export const getGithubRepos = username => async (dispatch) => {
     });
   }
 };
-
 
 // Create or update profile
 export const createProfile = (formData, history, edit = false) => async (
