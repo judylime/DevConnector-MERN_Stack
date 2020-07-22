@@ -79,10 +79,10 @@ export const deletePost = (id) => async (dispatch) => {
 };
 
 // Add post
-export const addPost = formData => async dispatch => {
+export const addPost = (formData) => async (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'applicaiton/json'
+      'Content-Type': 'application/json'
     }
   };
   try {
@@ -101,4 +101,3 @@ export const addPost = formData => async dispatch => {
     });
   }
 };
-
