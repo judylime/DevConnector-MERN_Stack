@@ -16,7 +16,7 @@ const initialState = {
   error: {}
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -41,19 +41,19 @@ export default function (state = initialState, action) {
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter((post) => post._id !== payload),
+        posts: state.posts.filter(post => post._id !== payload),
         loading: false
       };
     case POST_ERROR:
       return {
         ...state,
-        posts: payload,
+        error: payload,
         loading: false
       };
     case UPDATE_LIKES:
       return {
         ...state,
-        posts: state.posts.map((post) =>
+        posts: state.posts.map(post =>
           post._id === payload.id ? { ...post, likes: payload.likes } : post
         ),
         loading: false
@@ -70,7 +70,7 @@ export default function (state = initialState, action) {
         post: {
           ...state.post,
           comments: state.post.comments.filter(
-            (comment) => comment._id !== payload
+            comment => comment._id !== payload
           )
         },
         loading: false

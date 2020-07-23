@@ -5,6 +5,7 @@ import { addComment } from '../../actions/post';
 
 const CommentForm = ({ postId, addComment }) => {
   const [text, setText] = useState('');
+
   return (
     <div className='post-form'>
       <div className='bg-primary p'>
@@ -12,7 +13,7 @@ const CommentForm = ({ postId, addComment }) => {
       </div>
       <form
         className='form my-1'
-        onSubmit={(e) => {
+        onSubmit={e => {
           e.preventDefault();
           addComment(postId, { text });
           setText('');
@@ -22,9 +23,9 @@ const CommentForm = ({ postId, addComment }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='Create a post'
+          placeholder='Comment the post'
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={e => setText(e.target.value)}
           required
         />
         <input type='submit' className='btn btn-dark my-1' value='Submit' />
@@ -37,4 +38,7 @@ CommentForm.propTypes = {
   addComment: PropTypes.func.isRequired
 };
 
-export default connect(null, { addComment })(CommentForm);
+export default connect(
+  null, 
+  { addComment }
+  )(CommentForm);

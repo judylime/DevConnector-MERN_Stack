@@ -2,6 +2,9 @@
   "folders": [
     {
       "path": "."
+    },
+    {
+      "path": "../../../../Downloads/devconnector_2.0-master"
     }
   ],
   "settings": {}

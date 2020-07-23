@@ -15,32 +15,30 @@ const AddEducation = ({ addEducation, history }) => {
     description: ''
   });
 
-  /*const [toDateDisabled, toggleDisabled] = useState(false);*/
-
   const {
     school,
     degree,
     fieldofstudy,
     from,
     to,
-    current,
-    description
+    description,
+    current
   } = formData;
 
-  const onChange = (e) =>
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Add An Education</h1>
+      <h1 className='large text-primary'>Add Your Education</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch' /> Add any School or bootcamp that you
+        <i className='fas fa-code-branch' /> Add any school or bootcamp that you
         have attended
       </p>
       <small>* = required field</small>
       <form
         className='form'
-        onSubmit={(e) => {
+        onSubmit={e => {
           e.preventDefault();
           addEducation(formData, history);
         }}
@@ -48,7 +46,7 @@ const AddEducation = ({ addEducation, history }) => {
         <div className='form-group'>
           <input
             type='text'
-            placeholder='* School of Bootcamp'
+            placeholder='* School or Bootcamp'
             name='school'
             value={school}
             onChange={onChange}
@@ -85,9 +83,7 @@ const AddEducation = ({ addEducation, history }) => {
               name='current'
               checked={current}
               value={current}
-              onChange={() => {
-                setFormData({ ...formData, current: !formData.current });
-              }}
+              onChange={() => setFormData({ ...formData, current: !formData.current })}
             />{' '}
             Current School
           </p>

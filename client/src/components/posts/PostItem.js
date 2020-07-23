@@ -34,10 +34,10 @@ const PostItem = ({
             className='btn btn-light'
           >
             <i className='fas fa-thumbs-up' />{' '}
-            <span>{likes.length > 0 && <span> {likes.length} </span>}</span>
+            <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
           </button>
           <button
-            onClick={(e) => removeLike(_id)}
+            onClick={() => removeLike(_id)}
             type='button'
             className='btn btn-light'
           >
@@ -73,7 +73,7 @@ PostItem.propTypes = {
   auth: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
-  deletePost: PropTypes.func.isRequired
+  deletePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
