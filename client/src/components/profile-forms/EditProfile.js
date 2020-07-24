@@ -167,7 +167,7 @@ const EditProfile = ({
           <button
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
             type="button"
-            className="btn btn-light"
+            className="btn btn-primary"
           >
             Add Social Network Links
           </button>

@@ -82,12 +82,11 @@ router.post(
     if (linkedin) profileFields.social.linkedin = linkedin;
     if (instagram) profileFields.social.instagram = instagram;
 
+    // console.log(profileFields.social.twitter);
 
     try {
       // Using upsert option (creates new doc if no match is found):
-      let profile = await Profile.findOne(
-        { user: req.user.id },
-        );
+      let profile = await Profile.findOne({ user: req.user.id });
       if (profile) {
         //Update
         profile = await Profile.findOneAndUpdate(
@@ -125,9 +124,7 @@ router.get('/', async (req, res) => {
 // @route    GET api/profile/user/:user_id
 // @desc     Get profile by user ID
 // @access   Public
-router.get(
-  '/user/:user_id', 
-  async (req, res) => {
+router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id
@@ -254,9 +251,7 @@ router.put(
       check('school', 'School is required').not().isEmpty(),
       check('degree', 'Degree is required').not().isEmpty(),
       check('fieldofstudy', 'Field of study is required').not().isEmpty(),
-      check('from', 'From date is required and needs to be from the past')
-      .not()
-      .isEmpty()
+      check('from', 'From date is required').not().isEmpty()
     ]
   ],
   async (req, res) => {
@@ -329,7 +324,9 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 router.get('/github/:username', async (req, res) => {
   try {
     const options = {
-      uri: `http://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${config.get(
+      uri: `http://api.github.com/users/${
+        req.params.username
+      }/repos?per_page=5&sort=created:asc&client_id=${config.get(
         'githubClientId'
       )}&client_secret=${config.get('githubSecret')}`,
       method: 'GET',

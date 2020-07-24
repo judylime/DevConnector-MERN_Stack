@@ -27,7 +27,7 @@ const CommentItem = ({
         <button
           onClick={(e) => deleteComment(postId, _id)}
           type='button'
-          className='btn btn-danger'
+          className='btn btn-light'
         >
           <i className='fas fa-times' />
         </button>
@@ -43,11 +43,8 @@ CommentItem.propTypes = {
   deleteComment: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps, 
-  { deleteComment }
-  )(CommentItem);
+export default connect(mapStateToProps, { deleteComment })(CommentItem);

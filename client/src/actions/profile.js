@@ -21,8 +21,8 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data
     });
   } catch (err) {
-    // Profile State Issue & Fix : We found a security flaw in this app. If a guest user browses a dev profile and then registers, the browsed users profile data is still in the "profile" state and the newly registered user then sees and can edit the users info 
-    // Add this 
+    // Profile State Issue & Fix : We found a security flaw in this app. If a guest user browses a dev profile and then registers, the browsed users profile data is still in the "profile" state and the newly registered user then sees and can edit the users info
+    // Add this
     // dispatch({ type: CLEAR_PROFILE });
     dispatch({
       type: PROFILE_ERROR,
