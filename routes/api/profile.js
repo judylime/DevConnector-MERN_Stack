@@ -132,7 +132,7 @@ router.get('/user/:user_id', async (req, res) => {
 
     if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
-    return res.json(profile);
+    res.json(profile);
   } catch (err) {
     console.error(err.message);
     if (err.kind == 'ObjectId') {
@@ -172,8 +172,9 @@ router.put(
       check('title', 'Title is required').not().isEmpty(),
       check('company', 'Company is required').not().isEmpty(),
       check('from', 'From date is required and needs to be from the past')
-      .not()
-      .isEmpty()
+        .not()
+        .isEmpty()
+        .custom((value, { req }) => (req.body.to ? value < req.body.to : true))
     ]
   ],
   async (req, res) => {
@@ -251,7 +252,10 @@ router.put(
       check('school', 'School is required').not().isEmpty(),
       check('degree', 'Degree is required').not().isEmpty(),
       check('fieldofstudy', 'Field of study is required').not().isEmpty(),
-      check('from', 'From date is required').not().isEmpty()
+      check('from', 'From date is required')
+        .not()
+        .isEmpty()
+        .custom((value, { req }) => (req.body.to ? value < req.body.to : true))
     ]
   ],
   async (req, res) => {
@@ -343,7 +347,7 @@ router.get('/github/:username', async (req, res) => {
     });
   } catch (err) {
     console.error(err.message);
-    return res.status(404).json({ msg: 'No Github profile found' });
+    res.status(500).send('Server Error');
   }
 });
 
