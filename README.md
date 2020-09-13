@@ -1,6 +1,6 @@
 # MERN_DevConnector
 
-Welcome to "MERN Stack Front To Back". In this course we will build an in depth full stack social network application using Node.js, Express, React, Redux and MongoDB along with ES6+. We will start with a blank text editor and end with a deployed full stack application. This course includes...
+Welcome to "MERN Stack Front To Back". I will build an in depth full stack social network application using Node.js, Express, React, Redux and MongoDB along with ES6+. I will start with a blank text editor and end with a deployed full stack application. This course includes...
 
 Building an extensive backend API with Node.js & Express
 
@@ -24,11 +24,11 @@ Creating a build script, securing our keys and deploy to Heroku using Git
 
 
 
-UPDATE: The entire course was updated to use React Hooks, Async/Await and better overall code.
+UPDATE: updated to use React Hooks, Async/Await and better overall code.
 
  
 
-This is NOT an "Intro to React" or "Intro to Node" course. It is a practical hands on course for building an app using the incredible MERN stack. I do try and explain everything as I go so it is possible to follow without React/Node experience but it is recommended that you know at least the basics first.
+It is a practical hands on course for building an app using the incredible MERN stack. I do try and explain everything as I go so it is possible to follow without React/Node experience but it is recommended that you know at least the basics first.
 
 What you’ll learn
 Build a full stack social network app with React, Redux, Node, Express & MongoDB
@@ -41,7 +41,5 @@ Deploy to Heroku with a postbuild script
 Are there any course requirements or prerequisites?
 A good understanding of JavaScript & ES6 Fundamentals
 React & Node Basics
-Who this course is for:
-Anyone that wants to learn how to build and deploy a full stack MERN application
 
-https://www.udemy.com/course/mern-stack-front-to-back/learn/lecture/10055462#overview
+
